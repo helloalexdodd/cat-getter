@@ -6,6 +6,7 @@ import { List, ListItem, StyledButton }from './Gallery.style';
 const Gallery = ({ data }) => {
   const [modalIsOpen,setIsOpen] = useState(false);
   const [selectedBreed, setSelectedBreed] = useState({})
+  
   const openModal = () => {
     setIsOpen(true);
   }
@@ -19,8 +20,11 @@ const Gallery = ({ data }) => {
       <List>
         {data.map((breed, i) => (
           <>
-          <ListItem key={`${breed}-${i}`}>
-            <StyledButton onClick={() => {openModal(); setSelectedBreed(breed)}}>
+          <ListItem key={breed.id} >
+            <StyledButton onClick={() => {
+              openModal();
+              setSelectedBreed(breed);
+            }}>
               {breed.name}
             </StyledButton>
           </ListItem>

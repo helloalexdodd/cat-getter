@@ -1,31 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Wrapper from '../Wrapper';
 import Form from '../Form';
 import Gallery from '../Gallery';
 import { H3 } from '../Typography';
+import useFetchData from '../../hooks/useFetchData';
+
 import { StyledSection } from './Home.style';
 
-const Home = ({ data, setData }) => {
+const Home = () => {
+  const [catData, setCatData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [userInput, setUserInput] = useState('');
 
-  useEffect(() => {
-    fetch('https://api.thecatapi.com/v1/breeds', {
-      headers: {
-        'x-api-key': process.env.REACT_APP_CAT_API_KEY, 
-      }
-    }).then((res) => res.json()).then((data) => {
-      setData(data);
-      setFilteredData(data);
-    });
-  }, []);
-
-  useEffect(() => {
-    setFilteredData(data.filter((breed) => breed.name.toLowerCase().includes(userInput.toLowerCase())));
-  }, [userInput, data]);
+  useFetchData(catData, userInput, setCatData, setFilteredData);
 
   const handleOnChange = (e) => {
     setUserInput(e.target.value);
+    setFilteredData(catData.filter((breed) => breed.name.toLowerCase().includes(userInput.toLowerCase())));
   };
 
   const handleOnSubmit = (e) => {
@@ -38,7 +29,7 @@ const Home = ({ data, setData }) => {
       <Wrapper>
         <H3>Click a breed for more information!</H3>
         <Form
-          data={data}
+          data={catData}
           userInput={userInput}
           handleOnChange={handleOnChange}
           handleOnSubmit={handleOnSubmit}

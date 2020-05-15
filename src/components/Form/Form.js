@@ -8,14 +8,16 @@ const Form = ({
   handleOnSubmit
 }) => (
   <FormElement onSubmit={(e) => handleOnSubmit(e)}>
-    <label htmlFor="search">Or start typing to filter through breeds:</label>
-    <input
-      type="search"
-      id="search"
-      value={userInput}
-      onChange={handleOnChange}
-    />
-    <label htmlFor="submit"></label>
+    <div>
+      <label htmlFor="search">Or start typing to filter through breeds:</label>
+      <input
+        type="search"
+        id="search"
+        value={userInput}
+        onChange={handleOnChange}
+      />
+    </div>
+    <label htmlFor="submit" class="sr-only">Reset Filter</label>
     <Button
       type="submit"
       id="submit"
