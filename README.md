@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and is deployed using [Github Pages](https://helloalexdodd.github.io/cat-getter/). Additional packages include [React Router](https://www.npmjs.com/package/react-router-dom), [React Modal](https://github.com/reactjs/react-modal), and [Styled Components](https://styled-components.com/).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and is deployed using [Netlify](https://elegant-colden-42711a.netlify.app/). Additional packages include [React Router](https://www.npmjs.com/package/react-router-dom), [React Modal](https://github.com/reactjs/react-modal), and [Styled Components](https://styled-components.com/).
 
 ## Available Scripts
 
