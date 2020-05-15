@@ -2,7 +2,6 @@ import styled, { css } from  'styled-components';
 import { Link } from 'react-router-dom';
 
 const sharedStyles = css`
-  display: inline-block;
   padding: 10px 5px;
   font-family: ${({ theme }) => theme.fonts.secondary};
   font-size: ${({ theme }) => theme.fontSizes[2]};

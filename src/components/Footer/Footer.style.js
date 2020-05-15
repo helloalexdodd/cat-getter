@@ -5,5 +5,15 @@ export const FooterElement = styled.footer`
   justify-content: center;
   align-items: center;
   background: ${({ theme }) => theme.colors.black};
-  height: 8vh;
+  padding: 30px;
+
+  p {
+    text-align: center;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints[0]}) {
+    p {
+      font-size: ${({ theme }) => theme.fontSizes[1]};
+    }
+  }
 `;

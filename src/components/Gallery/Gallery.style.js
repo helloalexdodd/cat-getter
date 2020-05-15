@@ -13,4 +13,8 @@ export const ListItem = styled(Li)``;
 export const StyledButton = styled(Button)`
   padding: 8px 12px;
   font-size: ${({ theme }) => theme.fontSizes[3]};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints[1]}) {
+    font-size: ${({ theme }) => theme.fontSizes[2]};
+  }
 `;

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import theme from '../../theme';
 import { Text } from '../Typography';
 import Button from '../Button';
@@ -10,7 +10,8 @@ export const modalStyles = {
     right: 'auto',
     bottom: 'auto',
     backgroundColor: `${theme.colors.primary}`,
-    padding: '40px',
+    padding: '20px',
+    width: '70%',
     border: `${theme.borders[2]} ${theme.colors.secondary}`,
     borderRadius: `${theme.radii.modal}`,
     boxShadow: `${theme.shadows.box.modal}`,
@@ -24,12 +25,13 @@ export const modalStyles = {
 
 export const StyledText = styled(Text)`
   color: ${({ theme }) => theme.colors.white};
+  margin: 20px 0;
 `;
 
 export const StyledButton = styled(Button)`
   color: ${({ theme }) => theme.colors.white};
   border-color: ${({ theme }) => theme.colors.white};
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 `;
 
 export const Span = styled.span`

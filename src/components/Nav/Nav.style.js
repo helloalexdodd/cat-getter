@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const NavElement = styled.nav`
   display: flex;
@@ -15,6 +15,14 @@ export const NavElement = styled.nav`
     
     li {
       margin: 0 20px;
+    }
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints[0]}) {
+    justify-content: center;
+    
+    ul {
+      padding-left: 0;
     }
   }
 `;
