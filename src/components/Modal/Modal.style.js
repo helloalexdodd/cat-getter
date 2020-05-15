@@ -13,6 +13,7 @@ export const modalStyles = {
     padding: '40px',
     border: `${theme.borders[2]} ${theme.colors.secondary}`,
     borderRadius: `${theme.radii.modal}`,
+    boxShadow: `${theme.shadows.box.modal}`,
     transform: 'translate(-50%, -50%)',
     transition: '0.3s',
   },

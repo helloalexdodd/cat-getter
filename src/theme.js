@@ -6,7 +6,6 @@ const colors = {
   white: '#fcfcfc', // White
   black: '#2C2C2C', // Black
   blackTransparent: `rgba(44, 44, 44, 0.8)`,
-  grey: '#7A7265',
 };
 
 colors.focus = colors.quaternary;
@@ -32,20 +31,10 @@ const fontSizes = [
   '3.052rem'
 ];
 
-const letterSpacings = {
-  sm: '0.5px',
-  md: '1px',
-};
-
-const lineHeights = {
-  sm: '1.65',
-  md: '1.95',
-};
-
 const breakpoints = ['768px', '992px', '1200px'];
 
 const sizes = {
-  maxWidth: '1280px',
+  maxWidth: '1100px',
 };
 
 const borders = [0, '2px solid', '10px solid'];
@@ -57,7 +46,7 @@ const radii = {
 
 const shadows = {
   box: {
-    focus: `0 0 2px 2px ${colors.focus}`,
+    modal: `0 0 5px 5px ${colors.blackTransparent}`,
   },
   text: `-0.5px -0.5px 1px ${colors.black}`,
 };
@@ -68,8 +57,6 @@ export const theme = {
   fonts,
   fontWeights,
   fontSizes,
-  lineHeights,
-  letterSpacings,
   borders,
   sizes,
   shadows,

@@ -10,20 +10,18 @@ const Home = ({ data, setData }) => {
   const [userInput, setUserInput] = useState('');
 
   useEffect(() => {
-    // fetch('https://api.thecatapi.com/v1/breeds', {
-    //   headers: {
-    //     'x-api-key': process.env.REACT_APP_CAT_API_KEY, 
-    //   }
-    // }).then((res) => res.json()).then((data) => {
-    //   setData(data);
-    //   setFilteredData(data);
-      // console.log(data)
-    // });
-  });
+    fetch('https://api.thecatapi.com/v1/breeds', {
+      headers: {
+        'x-api-key': process.env.REACT_APP_CAT_API_KEY, 
+      }
+    }).then((res) => res.json()).then((data) => {
+      setData(data);
+      setFilteredData(data);
+    });
+  }, []);
 
   useEffect(() => {
     setFilteredData(data.filter((breed) => breed.name.toLowerCase().includes(userInput.toLowerCase())));
-    console.log(data)
   }, [userInput, data]);
 
   const handleOnChange = (e) => {

@@ -18,8 +18,4 @@ export const GlobalStyle = createGlobalStyle`
     font-family: ${({ theme }) => theme.fonts.default};
     font-size: ${({ theme }) => theme.fontSizes[1]};
   }
-
-  ul {
-    padding: 0;
-  }
 `;

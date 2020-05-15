@@ -15,28 +15,25 @@ const Gallery = ({ data }) => {
   }
 
   return (
-  <>
-    <List>
-      {data.map((breed, i) => (
-        <>
-        <ListItem key={`${breed}-${i}`}>
-          <StyledButton
-            href={`#`}
-            onClick={() => {openModal(); setSelectedBreed(breed)}}
-          >
-            {breed.name}
-          </StyledButton>
-        </ListItem>
-        </>
-      ))}
-    </List>
-    <Modal
-      modalIsOpen={modalIsOpen}
-      closeModal={closeModal}
-      data={selectedBreed}
-    />
-  </>
-);
-  };
+    <>
+      <List>
+        {data.map((breed, i) => (
+          <>
+          <ListItem key={`${breed}-${i}`}>
+            <StyledButton onClick={() => {openModal(); setSelectedBreed(breed)}}>
+              {breed.name}
+            </StyledButton>
+          </ListItem>
+          </>
+        ))}
+      </List>
+      <Modal
+        modalIsOpen={modalIsOpen}
+        closeModal={closeModal}
+        data={selectedBreed}
+      />
+    </>
+  );
+};
 
 export default Gallery;
