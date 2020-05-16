@@ -14,7 +14,7 @@ const Home = () => {
   const [catData, setCatData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [userInput, setUserInput] = useState('');
-  const [selectedTemperament, setSelectedTemperament] = useState('');
+  const [selectedTemperaments, setSelectedTemperaments] = useState([]);
   const [open, setOpen] = useState(false);
   
   useFetchData(catData, userInput, setCatData, setFilteredData);
@@ -31,7 +31,18 @@ const Home = () => {
   };
 
   const handleTemperamentSelect = (temperament) => {
-    filterByDescription(setFilteredData, catData, temperament, setSelectedTemperament);
+    let isSelected = false;
+    if (selectedTemperaments.includes(temperament)) {
+      const newSelectedTemperaments = [...selectedTemperaments];
+      const index = newSelectedTemperaments.indexOf(temperament);
+      newSelectedTemperaments.splice(index, 1);
+      setSelectedTemperaments(newSelectedTemperaments);
+      isSelected = true;
+    }
+    if (!isSelected) {
+      setSelectedTemperaments([...selectedTemperaments, temperament]);
+    }
+    filterByDescription(setFilteredData, catData, selectedTemperaments);
   };
 
   return (
@@ -43,11 +54,12 @@ const Home = () => {
           userInput={userInput}
           handleOnChange={handleOnChange}
           handleOnSubmit={handleOnSubmit}
+          setSelectedTemperaments={setSelectedTemperaments}
         />
         <Temperaments
           catData={catData}
           handleTemperamentSelect={handleTemperamentSelect}
-          selectedTemperament={selectedTemperament}
+          selectedTemperaments={selectedTemperaments}
           open={open}
           setOpen={setOpen}
         />

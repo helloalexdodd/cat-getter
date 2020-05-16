@@ -10,17 +10,16 @@ import {
 } from './Temperaments.style';
 
 const Temperaments = ({
-  catData, handleTemperamentSelect, selectedTemperament, open, setOpen,
+  catData, handleTemperamentSelect, selectedTemperaments, open, setOpen,
 }) => {
   const generateTemperamentList = () => catData.reduce((acc, cur) => {
-    const temperamentArray = cur.temperament.split(', ');
-    temperamentArray.forEach((temp) => {
-      if (!acc.includes(temp)) {
-        acc.push(temp.charAt(0).toUpperCase() + temp.slice(1));
-      }
+    cur.temperament.split(', ').forEach((temp) => {
+      acc.push(temp.charAt(0).toUpperCase() + temp.slice(1));
     });
-    return acc;
+    return [...new Set(acc)];
   }, []);
+
+  const checkSelectedTemperaments = (temperament) => selectedTemperaments.includes(temperament);
     
   return (
     <>
@@ -46,7 +45,7 @@ const Temperaments = ({
                 <TemperamentButton
                   name="temperament"
                   id="temperament"
-                  selected={temperament === selectedTemperament}
+                  selected={checkSelectedTemperaments(temperament)}
                   onClick={() => {
                     handleTemperamentSelect(temperament);
                   }}
@@ -62,12 +61,13 @@ const Temperaments = ({
 };
 
 Temperaments.propTypes = {
-  catData: PropTypes.objectOf(
-    PropTypes.string,
-    PropTypes.number,
+  catData: PropTypes.arrayOf(
+    PropTypes.object,
   ),
   handleTemperamentSelect: PropTypes.func,
-  selectedTemperament: PropTypes.string,
+  selectedTemperaments: PropTypes.arrayOf(
+    PropTypes.string,
+  ),
   open: PropTypes.bool,
   setOpen: PropTypes.func,
 };

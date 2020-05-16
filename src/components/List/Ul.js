@@ -11,7 +11,7 @@ Ul.propTypes = {
   className: PropTypes.string,
   children: PropTypes.arrayOf(
     PropTypes.node,
-  ).isRequired,
+  ),
 };
 
 export default Ul;

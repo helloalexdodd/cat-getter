@@ -15,10 +15,8 @@ const Label = ({ htmlFor, className, children }) => (
 Label.propTypes = {
   htmlFor: PropTypes.string,
   className: PropTypes.string,
-  children: PropTypes.oneOf(
-    PropTypes.string,
-    PropTypes.node,
-  ),
+  // eslint-disable-next-line react/forbid-prop-types
+  children: PropTypes.any,
 };
 
 export default Label;

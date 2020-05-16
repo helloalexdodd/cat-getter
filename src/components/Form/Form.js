@@ -6,9 +6,13 @@ import Label from '../Label';
 import { FormElement } from './Form.style';
 
 const Form = ({
-  userInput, handleOnChange, handleOnSubmit,
+  userInput, handleOnChange, handleOnSubmit, setSelectedTemperaments,
 }) => (
-  <FormElement onSubmit={(e) => handleOnSubmit(e)}>
+  <FormElement onSubmit={(e) => {
+    handleOnSubmit(e);
+    setSelectedTemperaments([]);
+  }}
+  >
     <div>
       <Label htmlFor="search">
         or start typing to filter through breeds:
@@ -33,6 +37,7 @@ Form.propTypes = {
   userInput: PropTypes.string,
   handleOnChange: PropTypes.func.isRequired,
   handleOnSubmit: PropTypes.func.isRequired,
+  setSelectedTemperaments: PropTypes.func.isRequired,
 };
 
 export default Form;

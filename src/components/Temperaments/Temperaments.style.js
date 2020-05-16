@@ -18,9 +18,9 @@ export const TemperamentButtonsContainer = styled(ExtendedButtonContainer)`
 `;
 
 export const TemperamentButton = styled(ExtendedButton)`
-  color: ${({ theme, selected }) => (selected ? theme.colors.tertiary : theme.colors.primary)};
+  color: ${({ theme, selected }) => (selected ? theme.colors.quaternary : theme.colors.primary)};
   &:focus {
-    color: ${({ theme }) => theme.colors.tertiary};
+    color: ${({ theme, selected }) => (selected ? theme.colors.quaternary : theme.colors.primary)};
   }
 `;
 

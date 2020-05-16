@@ -47,7 +47,7 @@ const ModalComponent = ({
         <H4>{name}</H4>
         <H5>
           {/* eslint-disable-next-line no-trailing-spaces */}
-          Also known as: 
+          Also known as:  
           {alt_names || 'N/A'}
         </H5>
         <StyledText>
@@ -56,7 +56,7 @@ const ModalComponent = ({
         <StyledLabel htmlFor={id}>Select a temperament to filter the cats:</StyledLabel>
         <TemperamentButtonsContainer>
           {temperament && temperament.split(', ').map((temper) => (
-            <Li key={id}>
+            <Li key={`Modal${temper}${id}`}>
               <TemperamentButton
                 name="temperament"
                 onClick={() => {
@@ -82,10 +82,8 @@ const ModalComponent = ({
 ModalComponent.propTypes = {
   modalIsOpen: PropTypes.bool,
   closeModal: PropTypes.func,
-  data: PropTypes.objectOf(
-    PropTypes.string,
-    PropTypes.number,
-  ),
+  // eslint-disable-next-line react/forbid-prop-types
+  data: PropTypes.object,
   handleTemperamentSelect: PropTypes.func,
   setOpen: PropTypes.func,
 };

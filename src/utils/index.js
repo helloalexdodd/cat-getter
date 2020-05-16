@@ -10,11 +10,17 @@ export const filterData = (setFilteredData, catData, userInput) => {
   )));
 };
 
-export const filterByDescription = (
-  setFilteredData, catData, temperament, setSelectedTemperament,
-) => {
-  setSelectedTemperament(temperament);
-  setFilteredData(catData.filter((breed) => (
-    breed.temperament.includes(temperament)
-  )));
+export const filterByDescription = (setFilteredData, catData, selectedTemperaments) => {
+  const newFilteredBreeds = [];
+  catData.forEach((breed) => {
+    // eslint-disable-next-line array-callback-return
+    breed.temperament.split(', ').some((temperament) => {
+      selectedTemperaments.forEach((selectedTemperament) => {
+        if (selectedTemperament === temperament) {
+          newFilteredBreeds.push(breed);
+        }
+      });
+    });
+  });
+  setFilteredData(newFilteredBreeds);
 };
