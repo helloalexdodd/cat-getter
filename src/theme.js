@@ -31,7 +31,7 @@ const fontSizes = [
   '3.052rem',
 ];
 
-const breakpoints = ['768px', '992px', '1200px'];
+const breakpoints = ['768px', '992px'];
 
 const sizes = {
   maxWidth: '1100px',
