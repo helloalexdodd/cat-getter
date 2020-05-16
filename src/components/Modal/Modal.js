@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Modal from 'react-modal';
 import Link from '../Link';
+import { Li } from '../List';
 import { H4, H5 } from '../Typography';
 
 import {
@@ -54,15 +55,17 @@ const ModalComponent = ({
         <StyledLabel htmlFor={id}>Select a temperament to filter the cats:</StyledLabel>
         <TemperamentButtonsContainer>
           {temperament && temperament.split(', ').map((temper) => (
-            <TemperamentButton
-              name="temperament"
-              onClick={() => {
-                handleTemperamentSelect(temper);
-                closeModal();
-              }}
-            >
-              {temper}
-            </TemperamentButton>
+            <Li key={id}>
+              <TemperamentButton
+                name="temperament"
+                onClick={() => {
+                  handleTemperamentSelect(temper);
+                  closeModal();
+                }}
+              >
+                {temper}
+              </TemperamentButton>
+            </Li>
           ))}
         </TemperamentButtonsContainer>
         <StyledText>

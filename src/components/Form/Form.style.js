@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const FormElement = styled.form`
   display: flex;
   flex-direction: column;
-  margin: 20px 0;
+  margin-top: 20px;
   
   input {
     margin: 10px;

@@ -3,6 +3,7 @@ import themeStyles from '../../theme';
 import { Text } from '../Typography';
 import Button from '../Button';
 import Label from '../Label';
+import { Ul } from '../List';
 
 export const modalStyles = {
   content: {
@@ -46,7 +47,7 @@ export const StyledLabel = styled(Label)`
   color: ${({ theme }) => theme.colors.white};
 `;
 
-export const TemperamentButtonsContainer = styled.div`
+export const TemperamentButtonsContainer = styled(Ul)`
   margin: 20px 0;
 `;
 

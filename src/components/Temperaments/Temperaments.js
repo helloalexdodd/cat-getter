@@ -1,39 +1,61 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Label from '../Label';
 
-import { TemperamentButton, TemperamentButtonsContainer } from './Temperaments.style';
+import {
+  AnimationButton,
+  TemperamentButtonsContainer,
+  ListItem,
+  TemperamentButton,
+} from './Temperaments.style';
 
 const Temperaments = ({ catData, handleTemperamentSelect }) => {
-  const generateTemperamentList = () => {
-    const temperaments = catData.reduce((acc, cur) => {
-      const temperamentArray = cur.temperament.split(', ');
-      temperamentArray.forEach((temp) => {
-        if (!acc.includes(temp)) {
-          acc.push(temp.charAt(0).toUpperCase() + temp.slice(1));
-        }
-      });
-      return acc;
-    }, []);
+  const [open, setOpen] = useState(false);
   
-    return temperaments.map((temperament) => (
-      <TemperamentButton
-        name="temperament"
-        onClick={() => {
-          handleTemperamentSelect(temperament);
-        }}
-      >
-        {temperament}
-      </TemperamentButton>
-    ));
-  };
+  const generateTemperamentList = () => catData.reduce((acc, cur) => {
+    const temperamentArray = cur.temperament.split(', ');
+    temperamentArray.forEach((temp) => {
+      if (!acc.includes(temp)) {
+        acc.push(temp.charAt(0).toUpperCase() + temp.slice(1));
+      }
+    });
+    return acc;
+  }, []);
     
   return (
     <>
-      <Label>or filter here by temperament:</Label>
-      <TemperamentButtonsContainer>
-        {generateTemperamentList()}
-      </TemperamentButtonsContainer>
+      <Label htmlFor="temperament">or filter here by temperament:</Label>
+      <Label
+        htmlFor="downArrow"
+        className="sr-only"
+      >
+        click here to see list of temperaments
+      </Label>
+      <AnimationButton
+        name="downArrow"
+        id="downArrow"
+        onClick={() => setOpen(!open)}
+      >
+        {open ? '⬆' : '⬇'}
+      </AnimationButton>
+      <div className="outerContainer">
+        <TemperamentButtonsContainer open={open}>
+          {open
+            ? generateTemperamentList().map((temperament, i) => (
+              <ListItem key={`temperament${i + 1}`}>
+                <TemperamentButton
+                  name="temperament"
+                  id="temperament"
+                  onClick={() => {
+                    handleTemperamentSelect(temperament);
+                  }}
+                >
+                  {temperament}
+                </TemperamentButton>
+              </ListItem>
+            )) : null}
+        </TemperamentButtonsContainer>
+      </div>
     </>
   );
 };
