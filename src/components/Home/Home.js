@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import Wrapper from '../Wrapper';
+import Spinner from '../Spinner';
 import Form from '../Form';
 import Gallery from '../Gallery';
-import { H3 } from '../Typography';
+import { Text, H3 } from '../Typography';
 import useFetchData from '../../hooks/useFetchData';
 import { filterData } from '../../utils';
 
@@ -12,7 +13,7 @@ const Home = () => {
   const [catData, setCatData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [userInput, setUserInput] = useState('');
-
+  
   useFetchData(catData, userInput, setCatData, setFilteredData);
 
   const handleOnChange = (e) => {
@@ -35,6 +36,12 @@ const Home = () => {
           handleOnChange={handleOnChange}
           handleOnSubmit={handleOnSubmit}
         />
+        {!catData.length && (
+          <>
+            <Text>Loading Cats...</Text>
+            <Spinner />
+          </>
+        )}
         <Gallery data={filteredData} />
       </Wrapper>
     </StyledSection>

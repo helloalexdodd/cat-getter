@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const FormElement = styled.form`
+  display: flex;
+  flex-direction: column;
   margin: 20px 0;
 
   label {
@@ -15,6 +17,7 @@ export const FormElement = styled.form`
   }
 
   button {
+    align-self: center;
     color: ${({ theme }) => theme.colors.focus};
     border: ${({ theme: { borders, colors } }) => `${borders[1]} ${colors.focus}`};
     
