@@ -7,14 +7,21 @@ import Home from './components/Home';
 import About from './components/About';
 import Footer from './components/Footer';
 
-Modal.setAppElement('#root')
+Modal.setAppElement('#root');
 const App = () => (
   <>
     <Nav />
     <Header />
     <Switch>
-      <Route path="/" component={Home} exact />
-      <Route path="/about" component={About} />
+      <Route
+        path="/"
+        component={Home}
+        exact
+      />
+      <Route
+        path="/about"
+        component={About}
+      />
     </Switch>
     <Footer />
   </>

@@ -1,33 +1,36 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import Modal from '../Modal';
+import { Li } from '../List';
 
-import { List, ListItem, StyledButton }from './Gallery.style';
+import { List, StyledButton } from './Gallery.style';
 
 const Gallery = ({ data }) => {
-  const [modalIsOpen,setIsOpen] = useState(false);
-  const [selectedBreed, setSelectedBreed] = useState({})
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const [selectedBreed, setSelectedBreed] = useState({});
   
   const openModal = () => {
     setIsOpen(true);
-  }
+  };
 
-  const closeModal = () =>{
+  const closeModal = () => {
     setIsOpen(false);
-  }
+  };
 
   return (
     <>
       <List>
-        {data.map((breed, i) => (
+        {data.map((breed) => (
           <>
-          <ListItem key={breed.id} >
-            <StyledButton onClick={() => {
-              openModal();
-              setSelectedBreed(breed);
-            }}>
-              {breed.name}
-            </StyledButton>
-          </ListItem>
+            <Li key={breed.id}>
+              <StyledButton onClick={() => {
+                openModal();
+                setSelectedBreed(breed);
+              }}
+              >
+                {breed.name}
+              </StyledButton>
+            </Li>
           </>
         ))}
       </List>
@@ -38,6 +41,10 @@ const Gallery = ({ data }) => {
       />
     </>
   );
+};
+
+Gallery.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default Gallery;

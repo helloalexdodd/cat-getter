@@ -4,6 +4,7 @@ import Form from '../Form';
 import Gallery from '../Gallery';
 import { H3 } from '../Typography';
 import useFetchData from '../../hooks/useFetchData';
+import { filterData } from '../../utils';
 
 import { StyledSection } from './Home.style';
 
@@ -16,7 +17,7 @@ const Home = () => {
 
   const handleOnChange = (e) => {
     setUserInput(e.target.value);
-    setFilteredData(catData.filter((breed) => breed.name.toLowerCase().includes(userInput.toLowerCase())));
+    filterData(setFilteredData, catData, userInput);
   };
 
   const handleOnSubmit = (e) => {

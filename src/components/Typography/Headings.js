@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import {
   StyledH1,
@@ -18,10 +19,35 @@ const H4 = ({ className, children }) => <StyledH4 className={className}>{childre
 
 const H5 = ({ className, children }) => <StyledH5 className={className}>{children}</StyledH5>;
 
+H1.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node,
+};
+
+H2.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node,
+};
+
+H3.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node,
+};
+
+H4.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node,
+};
+
+H5.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node,
+};
+
 export {
   H1,
   H2,
   H3,
   H4,
-  H5
+  H5,
 };

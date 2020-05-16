@@ -5,7 +5,7 @@ import {
   H3,
   H4,
   H5,
- } from './Headings';
+} from './Headings';
 
 export {
   Text,

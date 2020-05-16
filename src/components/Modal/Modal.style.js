@@ -1,25 +1,25 @@
 import styled from 'styled-components';
-import theme from '../../theme';
+import themeStyles from '../../theme';
 import { Text } from '../Typography';
 import Button from '../Button';
 
 export const modalStyles = {
-  content : {
+  content: {
     top: '50%',
     left: '50%',
     right: 'auto',
     bottom: 'auto',
-    backgroundColor: `${theme.colors.primary}`,
+    backgroundColor: `${themeStyles.colors.primary}`,
     padding: '20px',
     width: '70%',
-    border: `${theme.borders[2]} ${theme.colors.secondary}`,
-    borderRadius: `${theme.radii.modal}`,
-    boxShadow: `${theme.shadows.box.modal}`,
+    border: `${themeStyles.borders[2]} ${themeStyles.colors.secondary}`,
+    borderRadius: `${themeStyles.radii.modal}`,
+    boxShadow: `${themeStyles.shadows.box.modal}`,
     transform: 'translate(-50%, -50%)',
     transition: '0.3s',
   },
   overlay: {
-    backgroundColor: `${theme.colors.blackTransparent}`,
+    backgroundColor: `${themeStyles.colors.blackTransparent}`,
   },
 };
 

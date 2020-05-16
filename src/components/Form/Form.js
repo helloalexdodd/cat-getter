@@ -1,23 +1,23 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from '../Button';
 import { FormElement } from './Form.style';
 
 const Form = ({
-  userInput,
-  handleOnChange,
-  handleOnSubmit
+  userInput, handleOnChange, handleOnSubmit,
 }) => (
   <FormElement onSubmit={(e) => handleOnSubmit(e)}>
     <div>
-      <label htmlFor="search">Or start typing to filter through breeds:</label>
-      <input
-        type="search"
-        id="search"
-        value={userInput}
-        onChange={handleOnChange}
-      />
+      <label htmlFor="search">
+        Or start typing to filter through breeds:
+        <input
+          type="search"
+          id="search"
+          value={userInput}
+          onChange={handleOnChange}
+        />
+      </label>
     </div>
-    <label htmlFor="submit" class="sr-only">Reset Filter</label>
     <Button
       type="submit"
       id="submit"
@@ -27,4 +27,10 @@ const Form = ({
   </FormElement>
 );
 
-export default Form
+Form.propTypes = {
+  userInput: PropTypes.string,
+  handleOnChange: PropTypes.func.isRequired,
+  handleOnSubmit: PropTypes.func.isRequired,
+};
+
+export default Form;

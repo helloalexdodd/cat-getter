@@ -5,7 +5,7 @@ const colors = {
   quaternary: '#CF784B', // Rose
   white: '#fcfcfc', // White
   black: '#2C2C2C', // Black
-  blackTransparent: `rgba(44, 44, 44, 0.8)`,
+  blackTransparent: 'rgba(44, 44, 44, 0.8)',
 };
 
 colors.focus = colors.quaternary;
@@ -28,7 +28,7 @@ const fontSizes = [
   '1.563rem',
   '1.953rem',
   '2.441rem',
-  '3.052rem'
+  '3.052rem',
 ];
 
 const breakpoints = ['768px', '992px', '1200px'];
@@ -51,7 +51,7 @@ const shadows = {
   text: `-0.5px -0.5px 1px ${colors.black}`,
 };
 
-export const theme = {
+const theme = {
   breakpoints,
   colors,
   fonts,

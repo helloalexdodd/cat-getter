@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
 import Section from '../Section';
-import { H3 } from '../Typography';
+import { H3, Text } from '../Typography';
 import Link from '../Link';
-import { Text } from '../Typography';
+
 
 const sharedStyles = css`
   color: ${({ theme }) => theme.colors.black};

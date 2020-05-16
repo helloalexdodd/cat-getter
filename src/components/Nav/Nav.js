@@ -8,10 +8,20 @@ const Nav = () => (
   <NavElement>
     <Ul>
       <Li>
-        <Link router href="/">Home</Link>
+        <Link
+          router
+          href="/"
+        >
+          Home
+        </Link>
       </Li>
       <Li>
-        <Link router href="/about">About</Link>
+        <Link
+          router
+          href="/about"
+        >
+          About
+        </Link>
       </Li>
     </Ul>
   </NavElement>
