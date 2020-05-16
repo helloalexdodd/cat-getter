@@ -14,6 +14,8 @@ const Home = () => {
   const [catData, setCatData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [userInput, setUserInput] = useState('');
+  const [selectedTemperament, setSelectedTemperament] = useState('');
+  const [open, setOpen] = useState(false);
   
   useFetchData(catData, userInput, setCatData, setFilteredData);
 
@@ -29,7 +31,7 @@ const Home = () => {
   };
 
   const handleTemperamentSelect = (temperament) => {
-    filterByDescription(setFilteredData, catData, temperament);
+    filterByDescription(setFilteredData, catData, temperament, setSelectedTemperament);
   };
 
   return (
@@ -45,6 +47,9 @@ const Home = () => {
         <Temperaments
           catData={catData}
           handleTemperamentSelect={handleTemperamentSelect}
+          selectedTemperament={selectedTemperament}
+          open={open}
+          setOpen={setOpen}
         />
         {!catData.length && (
           <>
@@ -55,6 +60,7 @@ const Home = () => {
         <Gallery
           data={filteredData}
           handleTemperamentSelect={handleTemperamentSelect}
+          setOpen={setOpen}
         />
       </Wrapper>
     </StyledSection>

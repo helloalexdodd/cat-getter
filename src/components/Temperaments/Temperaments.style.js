@@ -18,7 +18,10 @@ export const TemperamentButtonsContainer = styled(ExtendedButtonContainer)`
 `;
 
 export const TemperamentButton = styled(ExtendedButton)`
-  color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme, selected }) => (selected ? theme.colors.tertiary : theme.colors.primary)};
+  &:focus {
+    color: ${({ theme }) => theme.colors.tertiary};
+  }
 `;
 
 export const ListItem = styled(Li)`

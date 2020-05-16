@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Label from '../Label';
 
@@ -9,9 +9,9 @@ import {
   TemperamentButton,
 } from './Temperaments.style';
 
-const Temperaments = ({ catData, handleTemperamentSelect }) => {
-  const [open, setOpen] = useState(false);
-  
+const Temperaments = ({
+  catData, handleTemperamentSelect, selectedTemperament, open, setOpen,
+}) => {
   const generateTemperamentList = () => catData.reduce((acc, cur) => {
     const temperamentArray = cur.temperament.split(', ');
     temperamentArray.forEach((temp) => {
@@ -46,6 +46,7 @@ const Temperaments = ({ catData, handleTemperamentSelect }) => {
                 <TemperamentButton
                   name="temperament"
                   id="temperament"
+                  selected={temperament === selectedTemperament}
                   onClick={() => {
                     handleTemperamentSelect(temperament);
                   }}
@@ -66,6 +67,9 @@ Temperaments.propTypes = {
     PropTypes.number,
   ),
   handleTemperamentSelect: PropTypes.func,
+  selectedTemperament: PropTypes.string,
+  open: PropTypes.bool,
+  setOpen: PropTypes.func,
 };
 
 export default Temperaments;

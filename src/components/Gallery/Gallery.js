@@ -5,7 +5,7 @@ import { Li } from '../List';
 
 import { List, StyledButton } from './Gallery.style';
 
-const Gallery = ({ data, handleTemperamentSelect }) => {
+const Gallery = ({ data, handleTemperamentSelect, setOpen }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [selectedBreed, setSelectedBreed] = useState({});
   
@@ -39,6 +39,7 @@ const Gallery = ({ data, handleTemperamentSelect }) => {
         closeModal={closeModal}
         data={selectedBreed}
         handleTemperamentSelect={handleTemperamentSelect}
+        setOpen={setOpen}
       />
     </>
   );
@@ -47,6 +48,7 @@ const Gallery = ({ data, handleTemperamentSelect }) => {
 Gallery.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object),
   handleTemperamentSelect: PropTypes.func,
+  setOpen: PropTypes.func,
 };
 
 export default Gallery;

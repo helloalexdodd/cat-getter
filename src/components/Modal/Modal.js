@@ -21,6 +21,7 @@ const ModalComponent = ({
   closeModal,
   data,
   handleTemperamentSelect,
+  setOpen,
 }) => {
   const {
     name,
@@ -61,6 +62,7 @@ const ModalComponent = ({
                 onClick={() => {
                   handleTemperamentSelect(temper);
                   closeModal();
+                  setOpen(true);
                 }}
               >
                 {temper}
@@ -85,6 +87,7 @@ ModalComponent.propTypes = {
     PropTypes.number,
   ),
   handleTemperamentSelect: PropTypes.func,
+  setOpen: PropTypes.func,
 };
 
 export default ModalComponent;
