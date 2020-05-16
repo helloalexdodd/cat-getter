@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import themeStyles from '../../theme';
 import { Text } from '../Typography';
 import Button from '../Button';
+import Label from '../Label';
 
 export const modalStyles = {
   content: {
@@ -25,15 +26,45 @@ export const modalStyles = {
 
 export const StyledText = styled(Text)`
   color: ${({ theme }) => theme.colors.white};
-  margin: 20px 0;
+  margin: 20px 0 10px;
 `;
 
-export const StyledButton = styled(Button)`
+export const CloseButtonContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
+
+export const CloseButton = styled(Button)`
+  display: block;
   color: ${({ theme }) => theme.colors.white};
   border-color: ${({ theme }) => theme.colors.white};
   margin-bottom: 20px;
 `;
 
+export const StyledLabel = styled(Label)`
+  margin-top: 20px;
+  color: ${({ theme }) => theme.colors.white};
+`;
+
+export const TemperamentButtonsContainer = styled.div`
+  margin: 20px 0;
+`;
+
+export const TemperamentButton = styled(CloseButton)`
+  display: inline-block;
+  margin: 5px 0;
+  border: none;
+  padding-left: 0;
+  padding-right: 10px;
+
+  &:hover,
+  &:focus {
+    border: none;
+  }
+`;
+
 export const Span = styled.span`
+  display: inline-block;
+  margin: 10px;
   font-weight: ${({ theme }) => theme.fontWeights.bold}
 `;

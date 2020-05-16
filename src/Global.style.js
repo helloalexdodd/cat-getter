@@ -21,4 +21,9 @@ export const GlobalStyle = createGlobalStyle`
     font-family: ${({ theme }) => theme.fonts.default};
     font-size: ${({ theme }) => theme.fontSizes[1]};
   }
+
+  button,
+  a {
+    cursor: pointer;
+  }
 `;

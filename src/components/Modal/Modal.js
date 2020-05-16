@@ -1,21 +1,25 @@
-/* eslint-disable react/forbid-prop-types */
 /* eslint-disable camelcase */
 import React from 'react';
 import PropTypes from 'prop-types';
 import Modal from 'react-modal';
 import Link from '../Link';
 import { H4, H5 } from '../Typography';
+
 import {
   modalStyles,
   StyledText,
-  StyledButton,
-  Span,
+  CloseButtonContainer,
+  CloseButton,
+  StyledLabel,
+  TemperamentButtonsContainer,
+  TemperamentButton,
 } from './Modal.style';
 
 const ModalComponent = ({
   modalIsOpen,
   closeModal,
   data,
+  handleTemperamentSelect,
 }) => {
   const {
     name,
@@ -24,6 +28,7 @@ const ModalComponent = ({
     temperament,
     cfa_url,
     vetstreet_url,
+    id,
   } = data;
   
   return (
@@ -33,21 +38,33 @@ const ModalComponent = ({
       style={modalStyles}
       contentLabel={`${name} Information`}
     >
-      <StyledButton onClick={closeModal}>x</StyledButton>
+      <CloseButtonContainer>
+        <CloseButton onClick={closeModal}>x</CloseButton>
+      </CloseButtonContainer>
       <div>
         <H4>{name}</H4>
         <H5>
-          Also known as:
+          {/* eslint-disable-next-line no-trailing-spaces */}
+          Also known as: 
           {alt_names || 'N/A'}
         </H5>
         <StyledText>
           {description}
         </StyledText>
-        <StyledText>
-          <Span>Temperament</Span>
-          :
-          {temperament}
-        </StyledText>
+        <StyledLabel htmlFor={id}>Select a temperament to filter the cats:</StyledLabel>
+        <TemperamentButtonsContainer>
+          {temperament && temperament.split(', ').map((temper) => (
+            <TemperamentButton
+              name="temperament"
+              onClick={() => {
+                handleTemperamentSelect(temper);
+                closeModal();
+              }}
+            >
+              {temper}
+            </TemperamentButton>
+          ))}
+        </TemperamentButtonsContainer>
         <StyledText>
           <Link href={cfa_url || vetstreet_url}>Click Here</Link>
           to find out more!
@@ -64,6 +81,7 @@ ModalComponent.propTypes = {
     PropTypes.string,
     PropTypes.number,
   ),
+  handleTemperamentSelect: PropTypes.func,
 };
 
 export default ModalComponent;

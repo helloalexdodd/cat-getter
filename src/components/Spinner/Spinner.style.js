@@ -1,14 +1,5 @@
-import styled, { keyframes } from 'styled-components';
-
-const spin = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-`;
+import styled from 'styled-components';
+import { spin } from '../../animations';
 
 export const Image = styled.img`
   height: 100px;

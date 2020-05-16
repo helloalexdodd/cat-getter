@@ -9,3 +9,9 @@ export const filterData = (setFilteredData, catData, userInput) => {
     breed.name.toLowerCase().includes(userInput.toLowerCase())
   )));
 };
+
+export const filterByDescription = (setFilteredData, catData, temperament) => {
+  setFilteredData(catData.filter((breed) => (
+    breed.temperament.includes(temperament)
+  )));
+};

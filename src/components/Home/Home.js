@@ -3,9 +3,10 @@ import Wrapper from '../Wrapper';
 import Spinner from '../Spinner';
 import Form from '../Form';
 import Gallery from '../Gallery';
+import Temperaments from '../Temperaments';
 import { Text, H3 } from '../Typography';
 import useFetchData from '../../hooks/useFetchData';
-import { filterData } from '../../utils';
+import { filterData, filterByDescription } from '../../utils';
 
 import { StyledSection } from './Home.style';
 
@@ -23,7 +24,12 @@ const Home = () => {
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
+    setFilteredData(catData);
     setUserInput('');
+  };
+
+  const handleTemperamentSelect = (temperament) => {
+    filterByDescription(setFilteredData, catData, temperament);
   };
 
   return (
@@ -36,13 +42,20 @@ const Home = () => {
           handleOnChange={handleOnChange}
           handleOnSubmit={handleOnSubmit}
         />
+        <Temperaments
+          catData={catData}
+          handleTemperamentSelect={handleTemperamentSelect}
+        />
         {!catData.length && (
           <>
             <Text>Loading Cats...</Text>
-            <Spinner />
+            <Spinner catData={catData} />
           </>
         )}
-        <Gallery data={filteredData} />
+        <Gallery
+          data={filteredData}
+          handleTemperamentSelect={handleTemperamentSelect}
+        />
       </Wrapper>
     </StyledSection>
   );

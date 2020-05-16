@@ -8,7 +8,6 @@ export const ButtonElement = styled.button`
   color: ${({ theme }) => theme.colors.tertiary};
   border: ${({ theme: { borders, colors } }) => `${borders[1]} ${colors.tertiary}`};
   border-radius: ${({ theme }) => theme.radii.button};
-  cursor: pointer;
   transition-duration: 0.3s;
 
   &:hover,

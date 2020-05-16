@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../Button';
+import Label from '../Label';
+
 import { FormElement } from './Form.style';
 
 const Form = ({
@@ -8,15 +10,15 @@ const Form = ({
 }) => (
   <FormElement onSubmit={(e) => handleOnSubmit(e)}>
     <div>
-      <label htmlFor="search">
-        Or start typing to filter through breeds:
+      <Label htmlFor="search">
+        or start typing to filter through breeds:
         <input
           type="search"
           id="search"
           value={userInput}
           onChange={handleOnChange}
         />
-      </label>
+      </Label>
     </div>
     <Button
       type="submit"
