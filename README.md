@@ -1,3 +1,3 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and is deployed using [Netlify](https://elegant-colden-42711a.netlify.app/). Additional packages include [React Router](https://www.npmjs.com/package/react-router-dom), [React Modal](https://github.com/reactjs/react-modal), and [Styled Components](https://styled-components.com/).
 
-To run the app locally you will require a unique API key stored in an .env file at the root of the project directory. Get your own unique API key [here](https://thecatapi.com/).
+To run the app locally, simply run *npm i* followed by *npm start*. You will require a unique API key stored in an .env file at the root of the project directory, with the key stored in a variable called *REACT_APP_CAT_API_KEY*. Get your own unique API key [here](https://thecatapi.com/).
