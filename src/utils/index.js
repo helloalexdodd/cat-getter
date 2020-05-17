@@ -13,10 +13,10 @@ export const filterData = (setFilteredData, catData, userInput) => {
 export const filterByDescription = (setFilteredData, catData, selectedTemperaments) => {
   const newFilteredBreeds = [];
   catData.forEach((breed) => {
-    // eslint-disable-next-line array-callback-return
-    breed.temperament.split(', ').some((temperament) => {
+    const breedTemperaments = breed.temperament.split(', ');
+    breedTemperaments.forEach((breedTemperament) => {
       selectedTemperaments.forEach((selectedTemperament) => {
-        if (selectedTemperament === temperament) {
+        if (breedTemperament === selectedTemperament) {
           newFilteredBreeds.push(breed);
         }
       });

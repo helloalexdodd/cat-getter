@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Wrapper from '../Wrapper';
 import Spinner from '../Spinner';
 import Form from '../Form';
@@ -42,8 +42,11 @@ const Home = () => {
     if (!isSelected) {
       setSelectedTemperaments([...selectedTemperaments, temperament]);
     }
-    filterByDescription(setFilteredData, catData, selectedTemperaments);
   };
+
+  useEffect(() => {
+    filterByDescription(setFilteredData, catData, selectedTemperaments);
+  }, [setFilteredData, catData, selectedTemperaments]);
 
   return (
     <StyledSection>
