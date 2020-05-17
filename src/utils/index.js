@@ -10,17 +10,19 @@ export const filterData = (setFilteredData, catData, userInput) => {
   )));
 };
 
+const checker = (array, target) => target.every((item) => array.includes(item));
+
 export const filterByDescription = (setFilteredData, catData, selectedTemperaments) => {
-  const newFilteredBreeds = [];
-  catData.forEach((breed) => {
-    const breedTemperaments = breed.temperament.split(', ');
-    breedTemperaments.forEach((breedTemperament) => {
-      selectedTemperaments.forEach((selectedTemperament) => {
-        if (breedTemperament === selectedTemperament) {
-          newFilteredBreeds.push(breed);
-        }
-      });
+  if (!selectedTemperaments.length) {
+    setFilteredData(catData);
+  } else {
+    const newFilteredBreeds = [];
+    catData.forEach((breed) => {
+      const breedTemperaments = breed.temperament.split(', ');
+      if (checker(breedTemperaments, selectedTemperaments)) {
+        newFilteredBreeds.push(breed);
+      }
     });
-  });
-  setFilteredData(newFilteredBreeds);
+    setFilteredData(newFilteredBreeds);
+  }
 };

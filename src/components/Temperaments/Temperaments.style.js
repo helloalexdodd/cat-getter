@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Button from '../Button';
 import { Li } from '../List';
+import Label from '../Label';
 
 import {
   TemperamentButton as ExtendedButton,
@@ -39,4 +40,8 @@ export const AnimationButton = styled(Button)`
   &:focus {
     color: ${({ theme }) => theme.colors.primary};
   }
+`;
+
+export const StyledLabel = styled(Label)`
+  margin: 10px 0;
 `;

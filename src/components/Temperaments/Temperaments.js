@@ -7,6 +7,7 @@ import {
   TemperamentButtonsContainer,
   ListItem,
   TemperamentButton,
+  StyledLabel,
 } from './Temperaments.style';
 
 const Temperaments = ({
@@ -23,7 +24,7 @@ const Temperaments = ({
     
   return (
     <>
-      <Label htmlFor="temperament">or filter here by temperament:</Label>
+      <StyledLabel htmlFor="temperament">or filter here by temperament:</StyledLabel>
       <Label
         htmlFor="downArrow"
         className="sr-only"
