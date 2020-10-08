@@ -1,0 +1,2 @@
+*.style.js linguist-language=SCSS
+pages/ linguist-language=JSX
